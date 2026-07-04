@@ -52,7 +52,7 @@ Each page class must:
 Example structure:
 ```typescript
 import { Page, Locator } from '@playwright/test';
-import type { SiteConfig } from '@types/site-config.types';
+import type { SiteConfig } from '@app-types/site-config.types';
 import { BasePage } from './base.page';
 
 export class ServicesPage extends BasePage {
