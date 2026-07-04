@@ -52,6 +52,7 @@ Each page class must:
 Example structure:
 ```typescript
 import { Page, Locator } from '@playwright/test';
+import type { SiteConfig } from '@types/site-config.types';
 import { BasePage } from './base.page';
 
 export class ServicesPage extends BasePage {
@@ -59,8 +60,8 @@ export class ServicesPage extends BasePage {
   readonly serviceCards: Locator;
   readonly ctaButton: Locator;
 
-  constructor(page: Page) {
-    super(page);
+  constructor(page: Page, config: SiteConfig) {
+    super(page, config);
     this.heroHeading = page.locator('h1');
     this.serviceCards = page.locator('[class*="service-card"], [class*="service-item"]');
     this.ctaButton = page.locator('a[href*="contact"], button:has-text("Get Started")').first();

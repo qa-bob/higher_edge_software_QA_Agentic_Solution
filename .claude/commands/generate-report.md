@@ -50,7 +50,8 @@ FLAKY TESTS
 [forms] required fields show validation when submitted empty
   Project: mobile-chrome
   Passed on retry 1 — likely a timing issue on mobile viewport.
-  Suggestion: Add await page.waitForTimeout(200) before click, or use waitForSelector.
+  Suggestion: Replace the fixed-delay assumption with an explicit waitForSelector or
+              Playwright's built-in auto-waiting — never page.waitForTimeout() (see CLAUDE.md).
 ```
 
 5. **Suggest next steps** based on results:
