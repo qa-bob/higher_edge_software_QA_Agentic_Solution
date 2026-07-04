@@ -6,7 +6,8 @@ import * as fs from 'fs';
 function loadSiteUrl(): string {
   const configPath = path.resolve(process.cwd(), 'site.config.json');
   try {
-    const raw = fs.readFileSync(configPath, 'utf-8');
+    const rawWithBom = fs.readFileSync(configPath, 'utf-8');
+    const raw = rawWithBom.charCodeAt(0) === 0xfeff ? rawWithBom.slice(1) : rawWithBom;
     const config = JSON.parse(raw) as { url?: string };
     return config.url ?? 'https://example.com';
   } catch {
