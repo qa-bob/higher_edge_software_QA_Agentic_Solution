@@ -1,9 +1,8 @@
 name: Playwright QA Suite
 
+# Manual only: the QA workflow (qa.yml) now runs smoke tests on push/PR and the scheduled suites.
 on:
-  pull_request:
-    branches: [main]
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 jobs:
   test:
